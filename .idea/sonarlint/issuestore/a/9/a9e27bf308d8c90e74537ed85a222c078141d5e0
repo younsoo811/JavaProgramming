@@ -1,0 +1,16 @@
+
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ãº8Œƒº€·0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ãº8ƒº€·0
+r	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í£’Øÿÿÿÿÿ8ƒº€·0
+r	java:S117	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í£’Øÿÿÿÿÿ8ƒº€·0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ˜îÔ8•ƒº€·0
+=
+java:S1659" Declare "Y1" on a separate line.(±Ãº8Ü„º€·0
+B
+java:S1659	" Declare "Y2" on a separate line.(Í£’Øÿÿÿÿÿ8İ„º€·0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Ôäáñ8å„º€·0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ôÛšä8û„º€·0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ôÛšä8ı„º€·0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Åòßüÿÿÿÿ8ı„º€·0
+^
+java:S1126"AReplace this if-then-else statement by a single return statement.(Ä…Ä™8„…º€·0
