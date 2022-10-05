@@ -55,8 +55,13 @@ class Reservation {
             System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
             reservar();
         }
-
-        seatprint();
+        if(seatNum == 1 || seatNum == 2 || seatNum == 3) {
+            seatprint();
+        }
+       else {
+            System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
+            reservar();
+        }
 
         System.out.print("이름>>");
         name = scanner.next();
@@ -143,36 +148,63 @@ class Reservation {
             cancel();
         }
 
-        seatprint();
+        if(seatNum == 1 || seatNum == 2 || seatNum == 3) {
+            seatprint();
+        }
+        else {
+            System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
+            cancel();
+        }
 
-        System.out.print("이름>>");
-        name = scanner.next();
+        while(true){
+            System.out.print("이름>>");
+            name = scanner.next();
 
-        if(seatNum == 1){
-            for (int i=0; i< 10; i++){
-                if (listS[i].equals(name)){
-                    listS[i] = "---";
+            int check = 1;
+
+            if(seatNum == 1){
+                for (int i=0; i< listS.length; i++){
+                    if (listS[i].equals(name)){
+                        listS[i] = "---";
+                        check = 1;
+                        break;
+                    }
+                    else check = 0;
                 }
             }
-        }
-        else if(seatNum == 2){
-            for (int i=0; i< 10; i++){
-                if (listA[i].equals(name)){
-                    listA[i] = "---";
+            else if(seatNum == 2){
+                for (int i=0; i< listA.length; i++){
+                    if (listA[i].equals(name)){
+                        listA[i] = "---";
+                        check = 1;
+                        break;
+                    }
+                    else check = 0;
                 }
             }
-        }
-        else if(seatNum == 3){
-            for (int i=0; i< 10; i++){
-                if (listB[i].equals(name)){
-                    listB[i] = "---";
+            else if(seatNum == 3){
+                for (int i=0; i< listB.length; i++){
+                    if (listB[i].equals(name)){
+                        listB[i] = "---";
+                        check = 1;
+                        break;
+                    }
+                    else check = 0;
                 }
             }
+            if(check == 0){
+                System.out.println("이름을 찾을수 없습니다. 다시 입력해주세요!");
+                continue;
+            }
+            else
+                break;
         }
+
         input();
         scanner.close();
     }
 
+    //해당하는 좌석만 출력하는 메소드
     public void seatprint(){
         if(seatNum == 1){
             System.out.print("S>>");
@@ -194,10 +226,6 @@ class Reservation {
                 System.out.print(" " + s);
             }
             System.out.println();
-        }
-        else{
-            System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
-            reservar();
         }
     }
 }
