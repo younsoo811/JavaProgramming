@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Reservation {
-    public int menuNum, seatNum, subnum;
+    public int menuNum, seatNum, subNum;
     private String name;
     private static String[] listS = {"---", "---", "---", "---", "---", "---", "---", "---", "---", "---"};
     private static String[] listA = {"---", "---", "---", "---", "---", "---", "---", "---", "---", "---"};
@@ -14,7 +14,7 @@ class Reservation {
     public Reservation() { }
 
     //메뉴 선택 함수
-    public void input(){
+    public void chooseMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("예약:1, 조회:2, 취소:3, 끝내기:4>>");
         try{
@@ -22,7 +22,7 @@ class Reservation {
         }
         catch(InputMismatchException e){
             System.out.println("메뉴를 잘못 선택했습니다. 다시 선택해주세요!");
-            input();
+            chooseMenu();
         }
 
         if(menuNum == 1){
@@ -38,7 +38,7 @@ class Reservation {
         }
         else{
             System.out.println("메뉴를 잘못 선택했습니다. 1~4번 중 다시 선택해주세요!");
-            input();
+            chooseMenu();
         }
 
         scanner.close();
@@ -56,7 +56,7 @@ class Reservation {
             reservar();
         }
         if(seatNum == 1 || seatNum == 2 || seatNum == 3) {
-            seatprint();
+            seatPrint();
         }
        else {
             System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
@@ -68,7 +68,7 @@ class Reservation {
 
         System.out.print("번호>>");
         try{
-            subnum = scanner.nextInt();
+            subNum = scanner.nextInt();
         }
         catch(InputMismatchException e){
             System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
@@ -76,9 +76,9 @@ class Reservation {
         }
 
         if(seatNum == 1){
-            if(listS[subnum-1] == "---"){
-                listS[subnum-1] = name;
-                input();
+            if(listS[subNum -1] == "---"){
+                listS[subNum -1] = name;
+                chooseMenu();
             }
             else{
                 System.out.println("이미 예약되어있는 자리입니다. 다시 선택해주세요!");
@@ -87,9 +87,9 @@ class Reservation {
             }
         }
         else if(seatNum == 2){
-            if(listA[subnum-1] == "---"){
-                listA[subnum-1] = name;
-                input();
+            if(listA[subNum -1] == "---"){
+                listA[subNum -1] = name;
+                chooseMenu();
             }
             else{
                 System.out.println("이미 예약되어있는 자리입니다. 다시 선택해주세요!");
@@ -98,9 +98,9 @@ class Reservation {
             }
         }
         else if(seatNum == 3){
-            if(listB[subnum-1] == "---"){
-                listB[subnum-1] = name;
-                input();
+            if(listB[subNum -1] == "---"){
+                listB[subNum -1] = name;
+                chooseMenu();
             }
             else{
                 System.out.println("이미 예약되어있는 자리입니다. 다시 선택해주세요!");
@@ -133,7 +133,7 @@ class Reservation {
         System.out.println();
 
         System.out.println("<<<조회를 완료하였습니다.>>>");
-        input();
+        chooseMenu();
     }
 
     //예약 취소하는 함수
@@ -149,7 +149,7 @@ class Reservation {
         }
 
         if(seatNum == 1 || seatNum == 2 || seatNum == 3) {
-            seatprint();
+            seatPrint();
         }
         else {
             System.out.println("좌석 번호를 잘못 입력했습니다. 다시 선택해주세요!");
@@ -200,12 +200,12 @@ class Reservation {
                 break;
         }
 
-        input();
+        chooseMenu();
         scanner.close();
     }
 
     //해당하는 좌석만 출력하는 메소드
-    public void seatprint(){
+    public void seatPrint(){
         if(seatNum == 1){
             System.out.print("S>>");
             for (String s : listS){
@@ -235,6 +235,6 @@ public class ReservationSystem {
         Reservation Rsystem = new Reservation();
         System.out.println("명품콘서트홀 예약 시스템입니다.");
 
-        Rsystem.input();
+        Rsystem.chooseMenu();
     }
 }
